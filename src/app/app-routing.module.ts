@@ -3,14 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
-  //Lazy Loading
-  {
-    path: 'element',
-    loadChildren: () => import('./elements/elements.module').then(m => m.ElementsModule)
-  },
+ //Lazy Loading
+ {
+  path: 'elements',
+  loadChildren: () => import('./elements/elements.module').then(m => m.ElementsModule)
+},
+
+{
+  path: 'collections',
+  loadChildren: () => import('./collctions/collctions.module').then(m => m.CollctionsModule)
+},
 
   { path: '', component: HomePageComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({
